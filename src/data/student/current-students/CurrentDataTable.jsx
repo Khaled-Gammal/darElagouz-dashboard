@@ -16,7 +16,7 @@ import { editCurrentStudentsFields, viewCurrentStudentsFields } from "./constant
 
 
 export default function CurrentDataTable({currentStudent}) {
-console.log(currentStudent.results);
+console.log(currentStudent);
 
   const columns = [
     {
@@ -33,9 +33,9 @@ console.log(currentStudent.results);
       className: "text-left",
     },
     {
-      id: "student_code",
+      id: "code",
       header: "Student Code",
-      accessorKey: "student_code",
+      accessorKey: "code",
       className: "text-center",
     },
     {
@@ -71,10 +71,10 @@ console.log(currentStudent.results);
       className: "text-center",
     },
   ];
-
+console.log(currentStudent)
   const columnsData = currentStudent?.results.map((student) => {
     return {
-      student_code: student.student_code,
+      code: student?.code,
       full_name: student.full_name,
       student_id: student.student_id,
       user_image:student?.user_image,

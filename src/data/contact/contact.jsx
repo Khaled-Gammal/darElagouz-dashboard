@@ -9,7 +9,7 @@ import { validate } from "@/lib/validation";
 import { Loader2, MapPin } from "lucide-react";
 import React, { useEffect, useReducer } from "react";
 import { toast } from "sonner";
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 const initialValues = {
   loading: false,
   error: {}, // Error state initialized as an empty object
@@ -181,17 +181,17 @@ export default function ContactForm({ contact }) {
           <Label className="text-sm font-normal text-gray-500 leading-[20.96px]">
             Location
           </Label>
-          <GoogleMapReact
+          {/* <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
-      >
+      > */}
         {/* <AnyReactComponent
           lat={59.955413}
           lng={30.337844}
           text="My Marker"
         /> */}
-      </GoogleMapReact>
+      {/* </GoogleMapReact> */}
           {/* map loaction */}
           {/* <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
     <TileLayer

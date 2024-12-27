@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 
 
 export default function EmployeesDataTable({admins}) {
+console.log(admins);
 
   const router = useRouter();
 // columns for the table

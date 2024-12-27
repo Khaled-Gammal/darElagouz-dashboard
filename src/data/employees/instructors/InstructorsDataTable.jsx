@@ -80,6 +80,7 @@ export default function InstructorsDataTable({instructors}) {
       id: admin?.instructor_id,
       full_name: admin?.full_name,
       departments: admin.departments.map((department) => department.department_name).join(", "),
+      groups:admin.groups?.map((group)=>group?.group_name).join(","),
       email: admin?.email,
       phone_number: admin?.phone_number,
       gender: admin?.gender,

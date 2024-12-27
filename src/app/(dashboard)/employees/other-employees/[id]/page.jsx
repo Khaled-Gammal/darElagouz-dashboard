@@ -6,6 +6,8 @@ import Image from "next/image";
 
 export default async function EmployeePage({ params }) {
   const admin = await GetDataInServerSide(`/dashboard/admins/${params?.id}/`);
+  console.log(admin);
+  
   return (
     <div className="flex flex-col gap-6 md:w-[75%]  ">
       <div className="h-[110px] w-[107px] overflow-hidden">

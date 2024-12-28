@@ -76,12 +76,12 @@ export default async function Home() {
                     ))
                 }
             </div>
-            <div className="grid md:grid-cols-2 sm:grid-cols-1 space-x-5">
+            <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-5">
                 <TotalUsersChart />
                 <Component />
 
                 </div>
-                <div className="grid md:grid-cols-1 sm:grid-cols-1 space-x-5">
+                <div className="grid md:grid-cols-1 sm:grid-cols-1 gap-5">
                     <DataTableDemo
                     columns={columns}
                     data={data}

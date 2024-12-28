@@ -108,6 +108,12 @@ export let PageRoutes = [
     icon: <ChartColumn />,
     active: "reports",
     children: [],
+  },{
+    title:"Financial",
+    path:"financial",
+    icon:<ChartColumn />,
+    active:"financial",
+    children:[]
   },
   {
     groupName: "Custom",

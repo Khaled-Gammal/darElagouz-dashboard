@@ -5,7 +5,7 @@ export const FinancialDataTable = ({financial}) => {
     const  financialData = financial?.results.map((financial) => {
         return {
           id: financial.id,
-          name: financial.name,
+          name: financial.name||"hamda",
         };
       }
     );

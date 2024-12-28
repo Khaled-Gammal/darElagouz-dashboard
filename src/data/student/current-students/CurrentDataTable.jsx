@@ -11,13 +11,18 @@ import { handleUpdateInServer } from "@/lib/actions/patch-server";
 import { compareData } from "@/lib/utils";
 import { toast } from "sonner";
 import { editCurrentStudentsFields, viewCurrentStudentsFields } from "./constant-data";
+import { DateFilter } from "@/components/shared/date-filter";
+import { useState } from "react";
+import UseSearchParamsHook from "@/hooks/use-search-params";
+import moment from "moment";
 
 
 
 
 export default function CurrentDataTable({currentStudent}) {
 console.log(currentStudent);
-
+const [filterDate,setFilterDate]=useState('')
+const {pathname,addQueryString}=UseSearchParamsHook() 
   const columns = [
     {
         id: "select",
@@ -138,9 +143,19 @@ console.log(currentStudent)
     }
   };
 
-
+const handleFilterDate=(newValue)=>{
+  setFilterDate(newValue)
+  const formattedDate = moment(newValue).format('DD-MM-YYYY');
+  addQueryString("date",formattedDate)
+}
   return (
-    <div>
+    <div className="flex flex-col gap-6">
+    <div className="flex justify-end items-center">
+    <DateFilter
+      value={filterDate}
+      onChange={handleFilterDate}
+    />
+    </div>
       <DataTableDemo data={columnsData} columns={columns} isPending={false} 
       onDelete={handleDelete}
       onEdit={handleEditCurrentStudents}

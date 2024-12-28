@@ -16,8 +16,8 @@ export const editCurrentStudentsFields = [
       required: true,
     },
     {
-      id: "student_code",
-      name: "student_code",  // Add `name` here to match state
+      id: "code",
+      name: "code",  // Add `name` here to match state
       label: "Student Code",
       placeholder: "Enter your student code",
       type: "text",
@@ -92,8 +92,8 @@ export const editCurrentStudentsFields = [
       disabled: true,
     },
     {
-      id: "student_code",
-      name: "student_code",  // Add `name` here to match state
+      id: "code",
+      name: "code",  // Add `name` here to match state
       label: "Student Code",
       placeholder: "Enter your student code",
       type: "text",

@@ -1,5 +1,6 @@
 "use client";
 
+import EmptyData from "@/components/shared/empty-data";
 import ViewCard from "@/components/shared/view-card";
 export default function WaitingInterviewsDataTable({ waitingInterviews }) {
   console.log("waitingInterviews", waitingInterviews);
@@ -25,7 +26,9 @@ export default function WaitingInterviewsDataTable({ waitingInterviews }) {
         ? WaitingInterviewStudents.map((student, index) => (
             <ViewCard key={index} student={student}/>
           ))
-        : Array.from({ length: 1 }).map((_, index) => <ViewCard key={index} />)}
+        : 
+ <EmptyData />
+         }
     </div>
   );
 }

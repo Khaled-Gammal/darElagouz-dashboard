@@ -1,16 +1,16 @@
 
-import EmployeesDataTable from "@/data/employees/other-employees/OtherEmployeesDataTable";
+import { FinancialDataTable } from "@/data/financial/financial-dataTable";
 import { GetDataInServerSide } from "@/lib/actions/get-server";
 
 
 export default async function EmployeesPage() {
 
-  const admins = await GetDataInServerSide(
+  const financial = await GetDataInServerSide(
     '/dashboard/admins/'
   )
   return (
       <div>
-       <EmployeesDataTable admins={admins}/>
+       <FinancialDataTable financial={financial}/>
       </div>
     )
   }

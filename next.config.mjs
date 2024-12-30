@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
-    ssr:false,
-    future: {
-      webpack5: true,
-    },
     images: {
       remotePatterns: [
         {

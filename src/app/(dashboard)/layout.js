@@ -1,9 +1,7 @@
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import TopBar from "@/components/layout/top-bar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { hasCookie } from "cookies-next";
-import { redirect } from "next/navigation";
-import { cookies } from 'next/headers'
+
 
 export default  function DashboardLayout({ children }) {
   

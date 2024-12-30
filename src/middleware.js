@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   let cookie = request.cookies.get("token");
+  console.log(cookie);
   const notTokenRoutes = [
     "/login",
   ];

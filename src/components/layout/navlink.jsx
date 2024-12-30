@@ -31,26 +31,54 @@ function NavLink({ data }) {
   }
 
   function isParentActive(parent) {
-    if (parent && parent.includes(FilterBath())) {
+    console.log(parent);
+    if (parent && parent?.includes(FilterBath())) {
       return true;
     }
     return false;
   }
 
   if (data.children && data?.children?.length > 0) {
+    console.log(data.active);
     return (
       <Accordion type="single" collapsible>
-        <AccordionItem value="item-1" className="border-0 px-0 py-0">
-          <AccordionTrigger className={cn(" text-base font-normal hover:border-l-[6px] hover:border-l-primary rounded-t-[10px] rounded-b-[10px] h-[60px] flex items-center hover:no-underline")}>
-            <p className="h-[46px] text-gray-400 text-base font-normal hover:bg-primary hover:text-[#fff] ml-4 pl-6 flex items-center gap-1 w-full rounded-sm">
+        <AccordionItem value="item-1" className="border-0 px-0 py-0 flex flex-row ">
+        <div
+              className={
+                isActive(data?.active)
+                  ? "w-[6px] bg-primary  rounded-tr-md rounded-br-md h-[60px]"
+                  : ""
+              }
+            ></div>
+            <div className="w-full ">
+          <AccordionTrigger
+            className={cn(`p-0 m-0 ml-4  my-2 rounded-[10px]  hover:no-underline h-[46px] hover:bg-primary hover:text-white ${isActive(data?.active)?"bg-primary text-white " :
+              " text-base font-normal  flex items-center "}`
+            )}
+          >
+            
+            <p
+              className={`h-[46px] text-gray-400 text-base font-normal w-full flex items-center gap-1 rounded-[10px] pl-[17.5px]  ${
+                isActive(data?.active)
+                  ? " bg-primary text-white"
+                  : "hover:bg-primary hover:text-white"
+              }   `}
+            >
               {data?.icon}
               {data?.title}
             </p>
           </AccordionTrigger>
           <AccordionContent>
             {data?.children.map((item) => (
+              console.log(item.active),
               <Link key={item?.title} href={item?.path}>
-                <SidebarMenuButton className=" text-gray-400 hover:text-primary  ml-4 pl-8 text-center flex">
+                <SidebarMenuButton
+                  className={`text-gray-400 hover:text-primary  ml-4 pl-8 text-center flex ${
+                    isParentActive(item?.active)
+                      ? " text-primary"
+                      : "hover:text-primary"
+                  }`}
+                >
                   <div class="lick-shape">
                     <div class="line"></div>
                     <div class="curve"></div>
@@ -61,6 +89,7 @@ function NavLink({ data }) {
               </Link>
             ))}
           </AccordionContent>
+          </div>
         </AccordionItem>
       </Accordion>
     );
@@ -69,17 +98,22 @@ function NavLink({ data }) {
       data?.path && (
         <Link key={data?.path} href={data?.path} className="no-underline">
           <SidebarMenuItem
-            className={`${
-              isActive(data?.active)
-                ? "border-l-[6px] border-l-primary rounded-s-xl rounded-e-xl h-[60px] flex items-center text-base"
-                : "hover:border-l-[6px] hover:border-l-primary rounded-t-xl rounded-b-xl h-[60px] flex items-center text-base"
+            className={`flex items-center text-base gap-4 group ${
+              isActive(data?.active) &&
+              " rounded-[10px] h-[60px] "
             }`}
           >
+            <div
+              className={
+                isActive(data.active) ?
+                "w-[6px] bg-primary rounded-tr-[10px] rounded-br-[10px] h-full":"w-[6px] hover:bg-primary h-full"
+              }
+            ></div>
             <SidebarMenuButton
-              className={`h-[46px] ${
+              className={`h-[46px] flex gap-[10px] text-base font-normal  pl-[17.5px] text-gray-500  ${
                 isActive(data?.active)
-                  ? "flex gap-[10px] text-base font-normal bg-primary text-[#fff] ml-4 pl-6"
-                  : "flex gap-[10px] ml-4 pl-6 text-gray-400 text-base font-normal hover:bg-primary hover:text-[#fff]"
+                  ? " bg-primary text-[#fff] rounded-[10px] "
+                  : "hover:bg-primary hover:text-[#fff] hover:rounded-[10px] "
               }`}
             >
               {data?.icon} {data?.title}

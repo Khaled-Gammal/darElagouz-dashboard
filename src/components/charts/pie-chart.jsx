@@ -55,7 +55,7 @@ const chartConfig = {
   },
 }  
 
-export function Component() {
+export function Component({department_percentages}) {
   return (
     <Card className="flex flex-col">
       <CardHeader className="pb-0 mb-[59px]">

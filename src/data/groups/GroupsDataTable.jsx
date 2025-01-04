@@ -95,6 +95,7 @@ export default function GroupsDataTable({groups}) {
     onConfirm: (row) => handleDeleteRow("/dashboard/groups/",row?.id,"/groups"),
     text: "Do you sure you wanna to delete this group ? ",
     title: "Delete Group",
+    successMessage: "Group has been deleted successfully",
   });
 
   const handleAddNewGroup = async (state) => {

@@ -13,6 +13,7 @@ const {
   ClipboardList,
   ChartColumn,
   Layers,
+  MessageCircleMore,
 } = require("lucide-react");
 
 export let PageRoutes = [
@@ -118,6 +119,13 @@ export let PageRoutes = [
   {
     groupName: "Custom",
     icon: <Plug />,
+  },
+  {
+    title: "Chat",
+    path: "/chat",
+    icon:<MessageCircleMore />,
+    active: "chat",
+    children: [],
   },
   {
     title: "map",

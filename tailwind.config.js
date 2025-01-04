@@ -36,6 +36,7 @@ module.exports = {
 			100:"#667085"
 		  },
 		  gold:"#BF9E5C",
+		  green:"#29B84F",
 		  "white-table": "#F7F7F7",
 		  border: "hsl(var(--border))",
 		  input: "hsl(var(--input))",

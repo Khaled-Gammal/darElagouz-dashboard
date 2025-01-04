@@ -27,7 +27,7 @@ function DepartmentsDataTable({ departments }) {
 
   // edit department  dialog
   const [handleEditDepartment, editDepartmentConfirmDialog] = useEditDialog({
-     onConfirm: (state) => handleEdit(state),
+    onConfirm: (state) => handleEdit(state),
     title: "Edit Department",
     fields: editDepartmentFields,
   });
@@ -118,7 +118,7 @@ function DepartmentsDataTable({ departments }) {
             key={department.id}
             row={department}
             onDelete={(row) => handleDelete(row)}
-            onEdit={(row) => handleEditDepartment(row)}
+            onEdit={(e,row) => handleEditDepartment(row)}
           />
         );
       })}

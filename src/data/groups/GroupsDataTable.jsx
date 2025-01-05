@@ -69,7 +69,7 @@ export default function GroupsDataTable({groups}) {
     };
   }
   );
- 
+ console.log(Groups);
   // edit group dialog
   const [handleEditGroup, editGroupConfirmDialog] = useEditDialog({
     onConfirm: (state) => handleEdit(state),
@@ -85,7 +85,6 @@ export default function GroupsDataTable({groups}) {
   });
 
   const [handleViewGroup, viewGroupConfirmDialog] = useViewDialog({
-    // onConfirm: (state) => handleEditCurrentStudent(state),
     title: "Group's Details",
     fields: viewGroupFields,
   });

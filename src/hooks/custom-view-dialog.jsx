@@ -124,6 +124,7 @@ console.log(state);
                   renderValue={field.renderValue}
                   value={state[field.name] || ""}
                   options={field.options}
+                  disabled={field.disabled}
                   onChange={(value) => {
                     dispatch({
                       type: "values",

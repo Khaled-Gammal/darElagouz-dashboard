@@ -49,17 +49,23 @@ export const editGroupFields = [
     type: "text",
   },
   {
-    id: "instructor",
+    id: "instructor_id",
     name: "instructor", // Add `name` here to match state
     label: "Instructor Name",
     placeholder: "Select instructor name",
     type: "selected",
-    options: ["Ali", "Mohamed", "Ahmed"],
-    view: "name",
+    path: "/dashboard/instructors/",
+    view: "full_name",
+    options: [],
+    renderValue: (options,value) => {
+      const instructor =options?.lenght>0? options?.find((option) => option?.instructor_id === Number(value))?.full_name:value
+      return instructor ? instructor : "Select your instructor"
+    }
+   
   },
   {
     id: "id",
-    name: "department_id", // Add `name` here to match state
+    name: "department", // Add `name` here to match state
     label: "Department Name",
     placeholder: "Select department name",
     type: "selected",
@@ -68,8 +74,8 @@ export const editGroupFields = [
     options: [],
     renderValue: (options,value) => {
        console.log(options);
-      const department = options?.find((option) => option.id === Number(value));
-      return department ? department?.title : "Select your department";
+      const department =options?.lenght>0? options?.find((option) => option.id === Number(value))?.title:value;
+      return department ? department : "Select your department";
     },
   },
 ];
@@ -93,7 +99,7 @@ export const viewGroupFields = [
   },
   {
     id: "id",
-    name: "department_id", // Add `name` here to match state
+    name: "department", // Add `name` here to match state
     label: "Department Name",
     placeholder: "Select department name",
     type: "selected",
@@ -101,7 +107,7 @@ export const viewGroupFields = [
     view: "title",
     options: [],
     renderValue: (options,value) => {
-       console.log(options);
+       
       const department = options?.find((option) => option.id === Number(value));
       return department ? department?.title : "Select your department";
     },

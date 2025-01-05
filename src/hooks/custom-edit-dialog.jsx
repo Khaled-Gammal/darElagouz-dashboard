@@ -119,6 +119,8 @@ console.log(state);
                   view={field.view}
                   value={state[field.name] || ""}
                   options={field.options}
+                  path={field.path}
+                  renderValue={field.renderValue}
                   onChange={(value) => {
                     dispatch({
                       type: "values",

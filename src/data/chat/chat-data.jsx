@@ -118,7 +118,7 @@ setNewMessage('');
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1" className='text-primary dark:text-gold  border-0 px-0 py-0  " '>
               <AccordionTrigger className={cn('hover:no-underline')} >Tagweed</AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="cursor-pointer">
                 {Array(5)
                   .fill()
                   .map((_, i) => (

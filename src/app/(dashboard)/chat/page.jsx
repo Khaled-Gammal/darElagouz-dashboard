@@ -1,5 +1,5 @@
 import ChatData from "@/data/chat/chat-data";
-import ContactForm from "@/data/contact/contact";
+
 
 export default async function ChatPage() {
   return (

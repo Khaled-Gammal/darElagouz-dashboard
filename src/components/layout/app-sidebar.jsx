@@ -21,7 +21,7 @@ export function AppSidebar() {
     <Sidebar className="w-[250px]">
       <SidebarContent className="bg-background ">
         <div className="flex justify-center mb-[49.91px]">
-          <Image src={logo} alt="logo" />
+          <Image src={logo} alt="logo" loading="lazy"/>
         </div>
         <SidebarGroup>
           <Suspense fallback={<SidbarSkelton/>}>
@@ -30,7 +30,7 @@ export function AppSidebar() {
               {PageRoutes?.map((item) => (
                 <>
                   {item?.groupName && (
-                    <SidebarGroupLabel className="flex justify-between text-sm font-normal text-gray-400">
+                    <SidebarGroupLabel key={item} className="flex justify-between text-sm font-normal text-gray-400">
                       {item?.groupName} <Plus />
                     </SidebarGroupLabel>
                   )}

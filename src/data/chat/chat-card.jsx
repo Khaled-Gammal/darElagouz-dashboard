@@ -6,7 +6,7 @@ export default function ChatCard() {
     <div className="grid grid-cols-12 gap-2">
       <div className="col-span-2">
         <Avatar>
-          <AvatarImage src={"https://github.com/shadcn.png"}  alt="@shadcn" />
+          <AvatarImage src={girl}  alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>

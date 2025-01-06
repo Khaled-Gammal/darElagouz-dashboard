@@ -34,7 +34,7 @@ console.log(path);
       const res = await GetDataInServerSide(path);
       console.log(res);
       if (res) {
-        setOptions(res.results);
+        setOptions(res?.results);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -59,7 +59,6 @@ console.log(path);
       labelRef.current.classList.remove("text-primary"); // Remove primary color on blur
     }
   };
-console.log("options=>",value,options);
   return (
     <div className="w-full">
       {label && (
@@ -83,7 +82,7 @@ console.log("options=>",value,options);
       >
         <SelectTrigger className="w-full">
           <SelectValue>
-          {renderValue() ? renderValue(options,value) : value ? options.find(opt => opt === value) : placeholder}
+          {renderValue() ? renderValue(options,value) : value ? options?.find(opt => opt === value) : placeholder}
           </SelectValue>
         </SelectTrigger>
         <SelectContent>

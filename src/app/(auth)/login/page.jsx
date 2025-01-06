@@ -6,7 +6,7 @@ function LoginPage() {
   return (
     <div className="flex flex-col justify-center items-center h-screen w-full">
       <div className="flex justify-center mb-[90px]">
-        <Image src={logo} alt="logo" height={278} width={210} />
+        <Image src={logo} alt="logo" height={278} width={210} loading="lazy" />
       </div>
       
       <LoginForm />

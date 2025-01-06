@@ -31,7 +31,7 @@ export default function ChatData() {
       console.log('message:', e.data);
       const message = JSON.parse(e.data);
       console.log(message);
-      // setMessages((prevMessages) => [...prevMessages, message]);
+      setMessages((prevMessages) => [...prevMessages, message]);
      
     },
     onReconnectStop: () => console.log('reconnect stopped'),

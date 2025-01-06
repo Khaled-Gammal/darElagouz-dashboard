@@ -3,24 +3,25 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useRouter, useSearchParams } from 'next/navigation'
-
+import UseSearchParamsHook from '@/hooks/use-search-params'
+import button from "@/style/button.module.css"
 export default function ThiredStep() {
     
-    const router = useRouter()
+   const {pathname,router,addQueryString}=UseSearchParamsHook()
 
     const handleConfirm = () => {
-      router.push(window.location.pathname)
+        
+        
+        router.push(pathname)
+        localStorage.removeItem('task')
     }
-
+const handleBackClick = () => {
+    addQueryString('step','2')
+}
   return (
     <div>
-        <Card>
-            <CardHeader>
-                <CardTitle>Step 3</CardTitle>
-                <CardDescription>Fill out the information below.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
+        
+           
                 <div className="space-y-1">
                     <Label htmlFor="address">Address</Label>
                     <Input id="address" />
@@ -29,11 +30,12 @@ export default function ThiredStep() {
                     <Label htmlFor="city">City</Label>
                     <Input id="city" />
                 </div>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-                <Button onClick={handleConfirm}>Confirm</Button>
-            </CardFooter>
-        </Card>
+           
+            <div className="flex mt-8 w-full' justify-around gap-20">
+                <Button className={`${button['cancel-button']} w-full`} onClick={handleBackClick}>Back</Button>
+                <Button className={`${button['confirm-button']} w-full`} onClick={handleConfirm}>Confirm</Button>
+            </div>
+    
     </div>
   )
 }

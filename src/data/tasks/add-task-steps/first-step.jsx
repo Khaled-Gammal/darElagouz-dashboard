@@ -39,7 +39,10 @@ export default function FirstStep() {
     }
     useEffect(()=>{
         addQueryString('step', '1')
-
+        const task=JSON.parse(localStorage.getItem('task'))
+        Object.keys(task).forEach(key=>{
+            dispatch({type:key,payload:task[key]})
+        })
     },[])
 
     return (

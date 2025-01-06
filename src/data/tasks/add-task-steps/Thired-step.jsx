@@ -1,13 +1,27 @@
 'use client'
+import InputField from '@/components/shared/input-field'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import UseSearchParamsHook from '@/hooks/use-search-params'
 import button from "@/style/button.module.css"
+import { useEffect, useReducer } from 'react'
+const initialState = {
+    address: '',
+    city: '',
+}
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'address':
+            return {...state, address: action.payload}
+        case 'city':
+            return {...state, city: action.payload}
+        default:
+            return state
+    }
+}
 export default function ThiredStep() {
     
    const {pathname,router,addQueryString}=UseSearchParamsHook()
+   const [state,dispatch]=useReducer(reducer,initialState)
 
     const handleConfirm = () => {
         
@@ -18,18 +32,31 @@ export default function ThiredStep() {
 const handleBackClick = () => {
     addQueryString('step','2')
 }
+
+useEffect(()=>{
+    const task=JSON.parse(localStorage.getItem('task'))
+    Object.keys(task).forEach(key=>{
+        dispatch({type:key,payload:task[key]})
+    })
+},[])
   return (
-    <div>
+    <div className='flex flex-col gap-4'>
         
            
-                <div className="space-y-1">
-                    <Label htmlFor="address">Address</Label>
-                    <Input id="address" />
-                </div>
-                <div className="space-y-1">
-                    <Label htmlFor="city">City</Label>
-                    <Input id="city" />
-                </div>
+        <InputField
+            name={'address'}
+            label={'Address'}
+            placeholder={'Enter the address'}
+            value={state?.address}
+            onChange={(e)=>dispatch({type:'address',payload:e.target.value})}
+            />
+            <InputField
+            name={'city'}
+            label={'City'}
+            placeholder={'Enter the city'}
+            value={state?.city}
+            onChange={(e)=>dispatch({type:'city',payload:e.target.value})}
+            />
            
             <div className="flex mt-8 w-full' justify-around gap-20">
                 <Button className={`${button['cancel-button']} w-full`} onClick={handleBackClick}>Back</Button>
